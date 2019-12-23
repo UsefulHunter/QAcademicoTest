@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  Platform,
   Text,
   SafeAreaView,
   FlatList,
@@ -59,6 +58,7 @@ function Separator() {
 }
 
 export default function HomeScreen() {
+  const [showMessages, setShowMessages] = useState(true);
   return (
     <View style={styles.container}>
       <View style={styles.nextEvents}>
@@ -73,25 +73,40 @@ export default function HomeScreen() {
           />
         </SafeAreaView>
       </View>
-      <View style={styles.messagesBox}>
-        <Text style={styles.titlesText}>
-          Você possui *{msgsNumbr}* mensagens não lidas!
-        </Text>
-        <Text>Último Remetente: {lastSender}</Text>
-        <Text>Assunto: {subject}</Text>
-        <View style={styles.buttonArea}>
-          <Button
-            title="Abrir Mensagens"
-            onPress={() => Alert.alert("Mensagens Abertas")}
-          />
-          <Separator />
+      {showMessages ? (
+        <View style={styles.messagesBox}>
+          <React.Fragment>
+            <Text style={styles.titlesText}>
+              Você possui *{msgsNumbr}* mensagens não lidas!
+            </Text>
+            <Text>Último Remetente: {lastSender}</Text>
+            <Text>Assunto: {subject}</Text>
+            <View style={styles.buttonArea}>
+              <Button
+                title="Abrir Mensagens"
+                onPress={() => Alert.alert("Mensagens Abertas")}
+              />
+              <Separator />
+              <Button
+                color="#FF0000"
+                title="Ignorar"
+                onPress={() => {
+                  setShowMessages(!showMessages);
+                }}
+              />
+            </View>
+          </React.Fragment>
+        </View>
+      ) : (
+        <View>
+          <Text>Sem Mensagens para mostrar</Text>
           <Button
             color="#FF0000"
-            title="Ignorar"
-            onPress={() => Alert.alert("Ignorar")}
+            title="E se tiver??"
+            onPress={() => setShowMessages(!showMessages)}
           />
         </View>
-      </View>
+      )}
     </View>
   );
 }

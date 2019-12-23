@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 
 import TabBarIcon from "../components/TabBarIcon";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
-import MessagesScreen from "../screens/MessagesScreen";
+import MessagesScreen from "../screens/MessagesScreen/MessagesScreen";
 import NotificationScreen from "../screens/NotificationsScreen/NotificationsScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 
@@ -26,7 +26,7 @@ HomeStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === "ios" ? `ios-home` : "md-information-circle"}
+      name={Platform.OS === "ios" ? `ios-home` : "md-home"}
     />
   )
 };
@@ -48,7 +48,7 @@ MessagesStack.navigationOptions = {
       name={
         Platform.OS === "ios"
           ? `ios-mail${focused ? "-open" : ""}`
-          : "md-information-circle"
+          : `md-mail${focused ? "-open" : ""}`
       }
     />
   )
@@ -71,7 +71,7 @@ NotificationStack.navigationOptions = {
       name={
         Platform.OS === "ios"
           ? `ios-notifications${focused ? "-outline" : ""}`
-          : "md-notifications"
+          : `md-notifications${focused ? "-outline" : ""}`
       }
     />
   )
