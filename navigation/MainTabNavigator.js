@@ -4,9 +4,9 @@ import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 
 import TabBarIcon from "../components/TabBarIcon";
-import HomeScreen from "../screens/HomeScreen";
+import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import MessagesScreen from "../screens/MessagesScreen";
-import NotificationScreen from "../screens/NotificationsScreen";
+import NotificationScreen from "../screens/NotificationsScreen/NotificationsScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 
 const config = Platform.select({
