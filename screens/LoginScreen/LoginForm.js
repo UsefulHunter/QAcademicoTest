@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-
 import { Text, TextInput, TouchableOpacity, Alert, View } from "react-native";
 import { styles } from "./LoginForm.style";
+
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
 
 class LoginForm extends Component {
   render() {
@@ -28,7 +30,7 @@ class LoginForm extends Component {
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() => {
-            Alert.alert("TOUCH DA BUTTON");
+            this.props.navigate("Main");
           }}
         >
           <Text style={styles.buttonText}>LOGIN</Text>

@@ -2,7 +2,7 @@ import React from "react";
 import { ScrollView, View, Text } from "react-native";
 import { styles } from "./NotificationsScreen.style";
 
-export default function NotificationScreen() {
+const NotificationScreen = () => {
   return (
     <ScrollView style={styles.container}>
       <View>
@@ -10,8 +10,10 @@ export default function NotificationScreen() {
       </View>
     </ScrollView>
   );
-}
+};
 
 NotificationScreen.navigationOptions = {
   title: "Notificações"
 };
+
+export default NotificationScreen;

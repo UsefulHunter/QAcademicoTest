@@ -7,7 +7,10 @@ import TabBarIcon from "../components/TabBarIcon";
 import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import MessagesScreen from "../screens/MessagesScreen/MessagesScreen";
 import NotificationScreen from "../screens/NotificationsScreen/NotificationsScreen";
-import SettingsScreen from "../screens/SettingsScreen";
+import SettingsScreen, {
+  navigationOptions
+} from "../screens/SettingsScreen/SettingsScreen";
+import LoginScreen from "../screens/LoginScreen/LoginScreen";
 
 const config = Platform.select({
   web: { headerMode: "screen" },
@@ -81,7 +84,8 @@ NotificationStack.path = "";
 
 const SettingsStack = createStackNavigator(
   {
-    Settings: SettingsScreen
+    Settings: SettingsScreen,
+    Login: LoginScreen
   },
   config
 );
